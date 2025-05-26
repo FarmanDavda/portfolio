@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farman Davda | Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto+Mono&display=swap');
+
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --primary-color: #ff6f61;
+      --secondary-color: #1f1f1f;
+      --accent-color: #ffa07a;
+      --shadow-color: rgba(255, 111, 97, 0.4);
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    header {
+      background-color: var(--secondary-color);
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    header p {
+      font-weight: 300;
+      font-size: 1.25rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-color: var(--primary-color);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      border-left: 6px solid var(--primary-color);
+      padding-left: 12px;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    /* Hero with avatar */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    #about-text {
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    #avatar-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    #avatar {
+       width: 220px;
+      height: 230px;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 8px 15px var(--shadow-color);
+      background: url('../img1.jpg') center/cover no-repeat;
+      transition: transform var(--transition); 
+    
+    }
+
+    #avatar:hover {
+      transform: scale(1.05);
+    }
+
+    /* Skills section */
+    #skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #skills li {
+      background-color: var(--secondary-color);
+      padding: 0.8rem 1.4rem;
+      border-radius: 30px;
+      font-weight: 600;
+      color: var(--primary-color);
+      box-shadow: 0 0 10px var(--shadow-color);
+      transition: background-color var(--transition), color var(--transition);
+      cursor: default;
+      user-select: none;
+    }
+
+    #skills li:hover {
+      background-color: var(--primary-color);
+      color: var(--bg-color);
+    }
+
+    /* Projects grid */
+    #projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: var(--secondary-color);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px var(--shadow-color);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px var(--shadow-color);
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    .project-desc {
+      flex-grow: 1;
+      color: #ccc;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-link {
+      align-self: flex-start;
+      font-weight: 600;
+      color: var(--accent-color);
+      border: 1.5px solid var(--accent-color);
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    .project-link:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+
+    /* Contact */
+    #contact p {
+      font-size: 1.15rem;
+      color: #ccc;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+
+    #contact a {
+      font-weight: 600;
+      display: inline-block;
+      margin: 0 0.7rem;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background-color: var(--secondary-color);
+      color: #777;
+      box-shadow: inset 0 1px 0 #222;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      #avatar-container {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Hi, I'm Farman Davda</h1>
+    <p>Welcome to my portfolio website</p>
+    <p>| Java Developer |</p>
+    <nav>
+      <a href="#about" class="active">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <div id="avatar-container" aria-label="Profile Picture">
+        <!-- <div id="avatar" role="img" aria-hidden="true"></div> -->
+    <img src="../img1.jpg" alt="" id="avatar" aria-hidden="true">  
+    </div>
+      <div id="about-text">
+        <h2>About Me</h2>
+        <p>Hi, I'm Farman, a passionate and dedicated Java developer with a strong foundation
+          in software development and web technologies. I holds a Bachelor of Science in Computer Application & IT and
+          i worked on multiple projects, including a fully functional e-commerce platform and a Java-based
+          application, showcasing both front-end and back-end development skills.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Java </li>
+        <li>Servlet / jsp</li>
+        <li>JavaScript(Basic)</li>
+        <li>Hibernate</li>
+        <li>C / C++</li>
+        <li>MySQL</li>
+        <li>Boostrap</li>
+        <li>php</li>
+        <li>HTML/CSS</li>
+        <!-- <li>Agile Methodologies</li> -->
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- <article class="project-card" tabindex="0" aria-label="Inventory Management System Project">
+        <h3 class="project-title">Inventory Management System</h3>
+        <p class="project-desc">An enterprise-grade Java desktop app managing inventory, suppliers, and orders, with
+          MySQL database integration for reliable data storage.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link"
+          aria-label="View Inventory Management System project">View Project</a>
+      </article> -->
+
+      <article class="project-card" tabindex="0" aria-label="Online Banking API Project">
+        <h3 class="project-title">Online Banking Web App</h3>
+        <p class="project-desc">
+          This project is a secure and user-friendly online banking web application that enables users to manage their
+          bank accounts digitally. The application provides core banking functionalities such as account login, balance
+          inquiry, fund transfer, transaction history, and profile management.</p>
+        <p style="font-weight: 900;">Technologies Used:</p>
+        <p> HTML / CSS | JavaScript | Java | Servlet | JSP | Mysql</p>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link"
+          aria-label="View Online Banking API project">View Project</a>
+      </article>
+
+      <article class="project-card" tabindex="0" aria-label="E-commerce Microservices Platform Project">
+        <h3 class="project-title">E-commerce Microservices Platform</h3>
+        <p class="project-desc">This project is an online platform for browsing and purchasing car auto parts. Designed
+          as an e-commerce system, it allows customers to explore products, add items to the cart, place orders, The
+          system is built with a focus on user experience, product organization, and secure order
+          processing.</p>
+        <p style="font-weight: 900;">Technologies Used:</p>
+        <p> HTML / CSS | JavaScript | php | Mysql</p>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link"
+          aria-label="View E-commerce Microservices Platform project">View Project</a>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Let’s connect! Email me or find me on LinkedIn & Github.</p>
+      <p>
+        <a href="mailto:davdafarman18@gmail.com" aria-label="Send email to davda-farman">davdafarman18@gmail.com</a> |
+        <a href="https://www.linkedin.com/in/farman-davda-6108b3366/" target="_blank" rel="noopener noreferrer"
+          aria-label="Open LinkedIn profile of Davda Farman">LinkedIn</a> |
+        <a href="https://github.com/FarmanDavda" target="_blank" rel="noopener noreferrer"
+          aria-label="Open Github profile of Davda Farman">Github</a>
+          |<a href="resume (1).pdf" download>Resume</a>
+        </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Farman Davda — Java Developer</p>
+  </footer>
+</body>
+</html>
